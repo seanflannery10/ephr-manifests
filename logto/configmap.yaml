@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logto
+  labels:
+    app: logto
+data:
+  TRUST_PROXY_HEADER: 'true'
+  DB_URL: 'postgres://postgres:test@postgres:5432/logto?sslmode=disable'

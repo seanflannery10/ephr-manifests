@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ephr
+  labels:
+    app: ephr
+data:
+  DB_URL: 'postgres://postgres:test@postgres:5432/ephr?sslmode=disable'

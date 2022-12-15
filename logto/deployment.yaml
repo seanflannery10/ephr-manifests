@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logto
+  labels:
+    app: logto
+spec:
+  selector:
+    matchLabels:
+      app: logto
+  template:
+    metadata:
+      labels:
+        app: logto
+    spec:
+      containers:
+        - name: logto
+          image: ghcr.io/logto-io/logto:1.0.0-beta.14
+          command: [ 'sh', '-c', 'sleep 3 && npm run cli db seed -- --swe && npm start' ]
+          envFrom:
+            - configMapRef:
+                name: logto
+          ports:
+            - containerPort: 3001
